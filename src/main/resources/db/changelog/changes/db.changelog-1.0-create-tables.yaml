@@ -1,0 +1,139 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0
+      author: decho
+      tagDatabase:
+        tag: "version_1.0"
+      changes:
+        - createTable:
+            tableName: customer
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(45)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: email
+                  type: varchar(45)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: active
+                  type: boolean
+                  constraints:
+                    nullable: true
+              - column:
+                  name: age
+                  type: int
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created
+                  type: datetime
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated
+                  type: datetime
+                  constraints:
+                    nullable: true
+        - createTable:
+            tableName: booking
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(45)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: description
+                  type: varchar(450)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: active
+                  type: boolean
+                  constraints:
+                    nullable: true
+              - column:
+                  name: age
+                  type: int
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created
+                  type: datetime
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated
+                  type: datetime
+                  constraints:
+                    nullable: true
+              - column:
+                  name: start_date
+                  type: datetime
+                  constraints:
+                    nullable: true
+              - column:
+                  name: end_date
+                  type: datetime
+                  constraints:
+                    nullable: true
+        - createTable:
+            tableName: brand
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(45)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: address
+                  type: varchar(450)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: short_code
+                  type: varchar(450)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created
+                  type: datetime
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated
+                  type: datetime
+                  constraints:
+                    nullable: true
+      rollback:
+        - dropTable:
+            tableName: customer
+
+
+
+

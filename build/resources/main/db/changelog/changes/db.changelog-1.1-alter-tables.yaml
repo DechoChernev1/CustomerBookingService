@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.1
+      author: decho
+      tagDatabase:
+        tag: "version_1.1"
+      preConditions:
+      changes:
+        - addColumn:
+            tableName: booking
+            columns:
+              - column:
+                  name: customer_id
+                  type: int
+        - addForeignKeyConstraint:
+            baseColumnNames: customer_id
+            baseTableName: booking
+            constraintName: fk_booking_customer
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: customer
+            validate: true
+        - addColumn:
+            tableName: booking
+            columns:
+              - column:
+                  name: brand_id
+                  type: int
+        - addForeignKeyConstraint:
+            baseColumnNames: brand_id
+            baseTableName: booking
+            constraintName: fk_booking_spec
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: brand
+            validate: true
+      rollback:
+        - dropColumn:
+            tableName: booking
+            columnName: customer_id
+        - dropColumn:
+            tableName: booking
+            columnName: brand_id
+
