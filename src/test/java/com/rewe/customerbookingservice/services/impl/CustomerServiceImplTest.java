@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
-public class CustomerServiceImplTest {
+class CustomerServiceImplTest {
 
     private final ModelMapper modelMapper = new ModelMapper();
     private final CustomerRepository customerRepository = Mockito.mock(CustomerRepository.class);

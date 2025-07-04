@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class BookingServiceImplTest {
+class BookingServiceImplTest {
 
     private final BookingRepository bookingRepository = mock(BookingRepository.class);
     private final ModelMapper modelMapper = new ModelMapper();

@@ -1,6 +1,9 @@
 package com.rewe.customerbookingservice.dtos;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,7 +17,6 @@ import java.util.List;
 @ToString
 @Builder
 public class CustomerDTO {
-    @Positive(message = "ID must be greater than 0")
     private Long id;
 
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")

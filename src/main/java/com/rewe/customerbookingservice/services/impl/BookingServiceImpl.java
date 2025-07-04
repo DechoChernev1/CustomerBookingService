@@ -59,7 +59,7 @@ public class BookingServiceImpl implements BookingService {
             bookingToUpdate.setStartDate(bookingDetails.getStartDate());
             bookingToUpdate.setEndDate(bookingDetails.getEndDate());
             if (bookingDetails.getBrand() != null) {
-                bookingToUpdate.setBrand(modelMapper.map(bookingDetails.getBrand().getId(), Brand.class)); // Assuming you have the ID mapping set correctly
+                bookingToUpdate.setBrand(modelMapper.map(bookingDetails.getBrand(), Brand.class)); // Assuming you have the ID mapping set correctly
             }
 
             Booking updatedBooking = bookingRepository.save(bookingToUpdate);
@@ -77,10 +77,10 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public List<BookingDTO> findBookingsByBrandId(Long brandId) {
         List<BookingDTO> bookingDTOList =
-                (List<BookingDTO>) bookingRepository
-                        .findByBrandId(brandId)
+                bookingRepository
+                        .findByBrand_Id(brandId)
                         .stream()
-                        .map(booking -> modelMapper.map(booking, BookingDTO.class));
+                        .map(booking -> modelMapper.map(booking, BookingDTO.class)).toList();
 
         return bookingDTOList;
     }

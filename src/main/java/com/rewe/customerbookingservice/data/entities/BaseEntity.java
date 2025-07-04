@@ -1,6 +1,7 @@
 package com.rewe.customerbookingservice.data.entities;
 
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,6 @@ import lombok.experimental.SuperBuilder;
 public class BaseEntity {
 
     @Id
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 }

@@ -15,9 +15,10 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.when;
 
-public class BrandServiceImplTest {
+class BrandServiceImplTest {
 
     @Mock
     private BrandRepository brandRepository;
@@ -43,8 +44,6 @@ public class BrandServiceImplTest {
     @Test
     void saveBrand_shouldReturnSavedBrandDTO_whenBrandIsValid() {
         when(brandRepository.save(any(Brand.class))).thenReturn(brand);
-        when(modelMapper.map(any(Brand.class), eq(BrandDTO.class))).thenReturn(brandDTO);
-        when(modelMapper.map(any(BrandDTO.class), eq(Brand.class))).thenReturn(brand);
 
         BrandDTO result = brandService.saveBrand(brandDTO);
 
@@ -56,7 +55,6 @@ public class BrandServiceImplTest {
     @Test
     void findBrandById_shouldReturnBrandDTO_whenBrandExists() {
         when(brandRepository.findById(1L)).thenReturn(Optional.of(brand));
-        when(modelMapper.map(brand, BrandDTO.class)).thenReturn(brandDTO);
 
         Optional<BrandDTO> result = brandService.findBrandById(1L);
 
@@ -76,7 +74,6 @@ public class BrandServiceImplTest {
     @Test
     void findAllBrands_shouldReturnListOfBrandDTOs() {
         when(brandRepository.findAll()).thenReturn(List.of(brand));
-        when(modelMapper.map(brand, BrandDTO.class)).thenReturn(brandDTO);
 
         List<BrandDTO> result = brandService.findAllBrands();
 

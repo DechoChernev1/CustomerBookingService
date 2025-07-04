@@ -3,6 +3,7 @@
   <component name="SonarLintProjectSettings">
     <option name="moduleMapping">
       <map>
+        <entry key="customer-booking-service" value="CustomerBookingService" />
         <entry key="customer_booking_service" value="CustomerBookingService" />
       </map>
     </option>
