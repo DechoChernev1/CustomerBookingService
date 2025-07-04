@@ -73,4 +73,15 @@ public class BookingServiceImpl implements BookingService {
         bookingRepository.deleteById(id);
         return !bookingRepository.existsById(id);
     }
+
+    @Override
+    public List<BookingDTO> findBookingsByBrandId(Long brandId) {
+        List<BookingDTO> bookingDTOList =
+                (List<BookingDTO>) bookingRepository
+                        .findByBrandId(brandId)
+                        .stream()
+                        .map(booking -> modelMapper.map(booking, BookingDTO.class));
+
+        return bookingDTOList;
+    }
 }

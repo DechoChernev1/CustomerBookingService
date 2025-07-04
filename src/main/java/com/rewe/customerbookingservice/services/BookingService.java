@@ -1,6 +1,7 @@
 package com.rewe.customerbookingservice.services;
 
 import com.rewe.customerbookingservice.dtos.BookingDTO;
+import jakarta.validation.constraints.Positive;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,4 +17,6 @@ public interface BookingService {
     BookingDTO updateBooking(Long id, BookingDTO bookingDetails);
 
     boolean deleteBooking(Long id);
+
+    List<BookingDTO> findBookingsByBrandId(@Positive Long brandId);
 }
