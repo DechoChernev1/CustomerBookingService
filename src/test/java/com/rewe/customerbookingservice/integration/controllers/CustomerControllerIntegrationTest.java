@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -60,11 +61,10 @@ class CustomerControllerIntegrationTest {
 
         restTemplate.put(uri, customerDTO);
 
-        ResponseEntity<CustomerDTO> responseEntity = restTemplate.getForEntity(uri, CustomerDTO.class);
+        Optional<CustomerDTO> updatedCustomer = customerService.findCustomerById(savedCustomer.getId());
 
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isNotNull();
-        assertThat(responseEntity.getBody().getName()).isEqualTo("Updated Customer");
+        assertThat(updatedCustomer.get()).isNotNull();
+        assertThat(updatedCustomer.get().getName()).isEqualTo("Updated Customer");
     }
 
     @Test
@@ -77,8 +77,8 @@ class CustomerControllerIntegrationTest {
 
         restTemplate.delete(uri);
 
-        ResponseEntity<CustomerDTO> responseEntity = restTemplate.getForEntity(uri, CustomerDTO.class);
+        Optional<CustomerDTO> updatedCustomer = customerService.findCustomerById(savedCustomer.getId());
 
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        assertThat(updatedCustomer.isPresent()).isFalse();
     }
 }

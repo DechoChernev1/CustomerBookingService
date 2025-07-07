@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -54,11 +55,10 @@ class BrandControllerIntegrationTest {
 
         restTemplate.put(uri, brandDTO);
 
-        ResponseEntity<BrandDTO> responseEntity = restTemplate.getForEntity(uri, BrandDTO.class);
+        Optional<BrandDTO> updatedBrand = brandService.findBrandById(savedBrand.getId());
 
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isNotNull();
-        assertThat(responseEntity.getBody().getName()).isEqualTo("Updated Brand");
+        assertThat(updatedBrand.get()).isNotNull();
+        assertThat(updatedBrand.get().getName()).isEqualTo("Updated Brand");
     }
 
     @Test
@@ -71,8 +71,8 @@ class BrandControllerIntegrationTest {
 
         restTemplate.delete(uri);
 
-        ResponseEntity<BrandDTO> responseEntity = restTemplate.getForEntity(uri, BrandDTO.class);
+        Optional<BrandDTO> updatedBrand = brandService.findBrandById(savedBrand.getId());
 
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        assertThat(updatedBrand.isPresent()).isFalse();
     }
 }

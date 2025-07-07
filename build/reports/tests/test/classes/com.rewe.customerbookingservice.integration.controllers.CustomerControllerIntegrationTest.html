@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - CustomerControllerIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>CustomerControllerIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.rewe.customerbookingservice.integration.controllers.html">com.rewe.customerbookingservice.integration.controllers</a> &gt; CustomerControllerIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.082s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testAddCustomer()</td>
+<td class="success">0.022s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeleteCustomer()</td>
+<td class="success">0.033s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpdateCustomer()</td>
+<td class="success">0.027s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2025-07-04T19:10:36.259+03:00 DEBUG 11757 --- [o-auto-1-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        customer
+        (active, age, created, email, name, updated) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-07-04T19:10:36.259+03:00 TRACE 11757 --- [o-auto-1-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) &lt;- [true]
+2025-07-04T19:10:36.259+03:00 TRACE 11757 --- [o-auto-1-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) &lt;- [22]
+2025-07-04T19:10:36.259+03:00 TRACE 11757 --- [o-auto-1-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.259306Z]
+2025-07-04T19:10:36.259+03:00 TRACE 11757 --- [o-auto-1-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [asd@asd.com]
+2025-07-04T19:10:36.259+03:00 TRACE 11757 --- [o-auto-1-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) &lt;- [New Customer]
+2025-07-04T19:10:36.259+03:00 TRACE 11757 --- [o-auto-1-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (6:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.259312Z]
+2025-07-04T19:10:36.269+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        customer
+        (active, age, created, email, name, updated) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-07-04T19:10:36.269+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) &lt;- [true]
+2025-07-04T19:10:36.269+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) &lt;- [22]
+2025-07-04T19:10:36.269+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.269151Z]
+2025-07-04T19:10:36.269+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [asd@asd.com]
+2025-07-04T19:10:36.269+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) &lt;- [Customer to Update]
+2025-07-04T19:10:36.269+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.269155Z]
+2025-07-04T19:10:36.277+03:00 DEBUG 11757 --- [o-auto-1-exec-5] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.active,
+        c1_0.age,
+        c1_0.created,
+        c1_0.email,
+        c1_0.name,
+        c1_0.updated 
+    from
+        customer c1_0 
+    where
+        c1_0.id=?
+2025-07-04T19:10:36.277+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.280+03:00 DEBUG 11757 --- [o-auto-1-exec-5] org.hibernate.SQL                        : 
+    select
+        b1_0.customer_id,
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0 
+    where
+        b1_0.customer_id=?
+2025-07-04T19:10:36.280+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.283+03:00 DEBUG 11757 --- [o-auto-1-exec-5] org.hibernate.SQL                        : 
+    update
+        customer 
+    set
+        active=?,
+        age=?,
+        created=?,
+        email=?,
+        name=?,
+        updated=? 
+    where
+        id=?
+2025-07-04T19:10:36.283+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) &lt;- [true]
+2025-07-04T19:10:36.283+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) &lt;- [22]
+2025-07-04T19:10:36.283+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.269151Z]
+2025-07-04T19:10:36.283+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [asd@asd.com]
+2025-07-04T19:10:36.283+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) &lt;- [Updated Customer]
+2025-07-04T19:10:36.283+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (6:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.282966Z]
+2025-07-04T19:10:36.283+03:00 TRACE 11757 --- [o-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (7:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.287+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.active,
+        c1_0.age,
+        c1_0.created,
+        c1_0.email,
+        c1_0.name,
+        c1_0.updated 
+    from
+        customer c1_0 
+    where
+        c1_0.id=?
+2025-07-04T19:10:36.287+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.290+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.customer_id,
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0 
+    where
+        b1_0.customer_id=?
+2025-07-04T19:10:36.290+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.297+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        customer
+        (active, age, created, email, name, updated) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-07-04T19:10:36.297+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) &lt;- [false]
+2025-07-04T19:10:36.297+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) &lt;- [0]
+2025-07-04T19:10:36.297+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.297636Z]
+2025-07-04T19:10:36.298+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.298+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) &lt;- [Customer To Delete]
+2025-07-04T19:10:36.298+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.297646Z]
+2025-07-04T19:10:36.304+03:00 DEBUG 11757 --- [o-auto-1-exec-6] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.active,
+        c1_0.age,
+        c1_0.created,
+        c1_0.email,
+        c1_0.name,
+        c1_0.updated 
+    from
+        customer c1_0 
+    where
+        c1_0.id=?
+2025-07-04T19:10:36.304+03:00 TRACE 11757 --- [o-auto-1-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [10]
+2025-07-04T19:10:36.308+03:00 DEBUG 11757 --- [o-auto-1-exec-6] org.hibernate.SQL                        : 
+    select
+        b1_0.customer_id,
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0 
+    where
+        b1_0.customer_id=?
+2025-07-04T19:10:36.309+03:00 TRACE 11757 --- [o-auto-1-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [10]
+2025-07-04T19:10:36.315+03:00 DEBUG 11757 --- [o-auto-1-exec-6] org.hibernate.SQL                        : 
+    delete 
+    from
+        customer 
+    where
+        id=?
+2025-07-04T19:10:36.315+03:00 TRACE 11757 --- [o-auto-1-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [10]
+2025-07-04T19:10:36.319+03:00 DEBUG 11757 --- [o-auto-1-exec-6] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        customer c1_0 
+    where
+        c1_0.id=?
+2025-07-04T19:10:36.319+03:00 TRACE 11757 --- [o-auto-1-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [10]
+2025-07-04T19:10:36.323+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.active,
+        c1_0.age,
+        c1_0.created,
+        c1_0.email,
+        c1_0.name,
+        c1_0.updated 
+    from
+        customer c1_0 
+    where
+        c1_0.id=?
+2025-07-04T19:10:36.323+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [10]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.2</a> at Jul 4, 2025, 7:10:36 PM</p>
+</div>
+</div>
+</body>
+</html>

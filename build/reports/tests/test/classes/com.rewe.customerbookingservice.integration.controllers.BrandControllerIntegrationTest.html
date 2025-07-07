@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">3</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.538s</div>
+<div class="counter">0.068s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,35 +61,12 @@
 <div class="tab-container">
 <ul class="tabLinks">
 <li>
-<a href="#">Failed tests</a>
-</li>
-<li>
 <a href="#">Tests</a>
 </li>
 <li>
 <a href="#">Standard output</a>
 </li>
-<li>
-<a href="#">Standard error</a>
-</li>
 </ul>
-<div class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="testUpdateBrand()"></a>
-<h3 class="failures">testUpdateBrand()</h3>
-<span class="code">
-<pre>org.opentest4j.AssertionFailedError: 
-expected: 200 OK
- but was: 405 METHOD_NOT_ALLOWED
-	at app//com.rewe.customerbookingservice.integration.controllers.BrandControllerIntegrationTest.testUpdateBrand(BrandControllerIntegrationTest.java:59)
-	at java.base@21.0.7/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base@21.0.7/java.util.ArrayList.forEach(ArrayList.java:1596)
-</pre>
-</span>
-</div>
-</div>
 <div class="tab">
 <h2>Tests</h2>
 <table>
@@ -101,308 +78,38 @@ expected: 200 OK
 </tr>
 </thead>
 <tr>
-<td class="failures">testUpdateBrand()</td>
-<td class="failures">0.538s</td>
-<td class="failures">failed</td>
+<td class="success">testAddBrand()</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeleteBrand()</td>
+<td class="success">0.027s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpdateBrand()</td>
+<td class="success">0.032s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
 <div class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::                (v3.5.0)
-
-2025-07-04T18:09:10.090+03:00  INFO 2054 --- [    Test worker] c.r.c.i.c.BrandControllerIntegrationTest : Starting BrandControllerIntegrationTest using Java 21.0.7 with PID 2054 (started by A1E6401 in /Users/A1E6401/Documents/repos/CustomerBookingService)
-2025-07-04T18:09:10.092+03:00  INFO 2054 --- [    Test worker] c.r.c.i.c.BrandControllerIntegrationTest : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2025-07-04T18:09:10.453+03:00  INFO 2054 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-04T18:09:10.489+03:00  INFO 2054 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 3 JPA repository interfaces.
-2025-07-04T18:09:10.752+03:00  INFO 2054 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2025-07-04T18:09:10.760+03:00  INFO 2054 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-04T18:09:10.761+03:00  INFO 2054 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-07-04T18:09:10.792+03:00  INFO 2054 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-04T18:09:10.792+03:00  INFO 2054 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 693 ms
-2025-07-04T18:09:10.882+03:00  INFO 2054 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-04T18:09:10.906+03:00  INFO 2054 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-07-04T18:09:10.921+03:00 DEBUG 2054 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-2025-07-04T18:09:10.922+03:00  INFO 2054 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-04T18:09:11.047+03:00  INFO 2054 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-04T18:09:11.059+03:00  INFO 2054 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-04T18:09:11.075+03:00  INFO 2054 --- [    Test worker] org.testcontainers.images.PullPolicy     : Image pull policy will be performed by: DefaultPullPolicy()
-2025-07-04T18:09:11.076+03:00  INFO 2054 --- [    Test worker] o.t.utility.ImageNameSubstitutor         : Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
-2025-07-04T18:09:11.079+03:00  INFO 2054 --- [    Test worker] org.testcontainers.DockerClientFactory   : Testcontainers version: 1.21.0
-2025-07-04T18:09:11.155+03:00  INFO 2054 --- [    Test worker] o.t.d.DockerClientProviderStrategy       : Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
-2025-07-04T18:09:11.274+03:00  INFO 2054 --- [    Test worker] o.t.d.DockerClientProviderStrategy       : Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
-2025-07-04T18:09:11.275+03:00  INFO 2054 --- [    Test worker] org.testcontainers.DockerClientFactory   : Docker host IP address is localhost
-2025-07-04T18:09:11.295+03:00  INFO 2054 --- [    Test worker] org.testcontainers.DockerClientFactory   : Connected to docker: 
-  Server Version: 27.4.0
-  API Version: 1.47
-  Operating System: Ubuntu 24.04.1 LTS
-  Total Memory: 7923 MB
-2025-07-04T18:09:11.307+03:00  INFO 2054 --- [    Test worker] tc.testcontainers/ryuk:0.11.0            : Creating container for image: testcontainers/ryuk:0.11.0
-2025-07-04T18:09:11.370+03:00  INFO 2054 --- [    Test worker] tc.testcontainers/ryuk:0.11.0            : Container testcontainers/ryuk:0.11.0 is starting: e6691d245c1dc86c963a9f54c5349fdf99a39a80e7fc8799694d901cb7b8dca6
-2025-07-04T18:09:11.523+03:00  INFO 2054 --- [    Test worker] tc.testcontainers/ryuk:0.11.0            : Container testcontainers/ryuk:0.11.0 started in PT0.216623S
-2025-07-04T18:09:11.525+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:11.784+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:12.040+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:12.299+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:12.558+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:12.816+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:13.075+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:13.330+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:13.590+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:13.849+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:14.104+03:00  WARN 2054 --- [containers-ryuk] o.t.utility.RyukResourceReaper           : Can not connect to Ryuk at localhost:33025
-
-java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$0(RyukResourceReaper.java:92) ~[testcontainers-1.21.0.jar:1.21.0]
-	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27) ~[duct-tape-1.0.8.jar:na]
-	at org.testcontainers.utility.RyukResourceReaper.lambda$maybeStart$1(RyukResourceReaper.java:88) ~[testcontainers-1.21.0.jar:1.21.0]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2025-07-04T18:09:14.374+03:00  INFO 2054 --- [    Test worker] o.t.utility.RyukResourceReaper           : Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
-2025-07-04T18:09:14.375+03:00  INFO 2054 --- [    Test worker] org.testcontainers.DockerClientFactory   : Checking the system...
-2025-07-04T18:09:14.377+03:00  INFO 2054 --- [    Test worker] org.testcontainers.DockerClientFactory   : ✔︎ Docker server version should be at least 1.6.0
-2025-07-04T18:09:14.380+03:00  INFO 2054 --- [    Test worker] tc.postgres:16-alpine                    : Creating container for image: postgres:16-alpine
-2025-07-04T18:09:14.435+03:00  INFO 2054 --- [    Test worker] tc.postgres:16-alpine                    : Container postgres:16-alpine is starting: 3dd551475b88efde5a5fd85c8b417a6cc9b850ffaf65f1572784ee04e8b7f964
-2025-07-04T18:09:15.235+03:00  INFO 2054 --- [    Test worker] tc.postgres:16-alpine                    : Container postgres:16-alpine started in PT0.855273S
-2025-07-04T18:09:15.236+03:00  INFO 2054 --- [    Test worker] tc.postgres:16-alpine                    : Container is started (JDBC URL: jdbc:postgresql://localhost:33026/test?loggerLevel=OFF)
-2025-07-04T18:09:17.330+03:00  INFO 2054 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.testcontainers.jdbc.ConnectionWrapper@2a666c8e
-2025-07-04T18:09:17.330+03:00  INFO 2054 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-04T18:09:17.353+03:00  WARN 2054 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-04T18:09:17.363+03:00  INFO 2054 --- [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 16.9
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-07-04T18:09:17.777+03:00  INFO 2054 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-04T18:09:17.783+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    set client_min_messages = WARNING
-2025-07-04T18:09:17.788+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    alter table if exists booking 
-       drop constraint if exists FK93w22vjg83rr9iv5kqi2j3ej0
-2025-07-04T18:09:17.793+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    alter table if exists booking 
-       drop constraint if exists FKlnnelfsha11xmo2ndjq66fvro
-2025-07-04T18:09:17.803+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    drop table if exists booking cascade
-2025-07-04T18:09:17.807+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    drop table if exists brand cascade
-2025-07-04T18:09:17.808+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    drop table if exists customer cascade
-2025-07-04T18:09:17.811+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    create table booking (
-        active boolean not null,
-        age integer not null,
-        end_date date,
-        start_date date,
-        brand_id bigint,
-        created timestamp(6) with time zone,
-        customer_id bigint,
-        id bigint generated by default as identity,
-        updated timestamp(6) with time zone,
-        description varchar(255),
-        title varchar(255),
-        primary key (id)
-    )
-2025-07-04T18:09:17.815+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    create table brand (
-        created timestamp(6) with time zone,
-        id bigint generated by default as identity,
-        updated timestamp(6) with time zone,
-        address varchar(255),
-        name varchar(255),
-        short_code varchar(255),
-        primary key (id)
-    )
-2025-07-04T18:09:17.818+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    create table customer (
-        active boolean not null,
-        age integer not null,
-        created timestamp(6) with time zone,
-        id bigint generated by default as identity,
-        updated timestamp(6) with time zone,
-        email varchar(255),
-        name varchar(255),
-        primary key (id)
-    )
-2025-07-04T18:09:17.820+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    alter table if exists booking 
-       add constraint FK93w22vjg83rr9iv5kqi2j3ej0 
-       foreign key (brand_id) 
-       references brand
-2025-07-04T18:09:17.823+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
-    alter table if exists booking 
-       add constraint FKlnnelfsha11xmo2ndjq66fvro 
-       foreign key (customer_id) 
-       references customer
-2025-07-04T18:09:17.826+03:00  INFO 2054 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-04T18:09:17.886+03:00 DEBUG 2054 --- [    Test worker] o.h.stat.internal.StatisticsInitiator    : Statistics initialized [enabled=false]
-2025-07-04T18:09:18.060+03:00  WARN 2054 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-04T18:09:18.362+03:00  INFO 2054 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63607 (http) with context path '/'
-2025-07-04T18:09:18.370+03:00  INFO 2054 --- [    Test worker] c.r.c.i.c.BrandControllerIntegrationTest : Started BrandControllerIntegrationTest in 8.426 seconds (process running for 8.904)
-2025-07-04T18:09:18.683+03:00 DEBUG 2054 --- [    Test worker] org.hibernate.SQL                        : 
+<pre>2025-07-04T19:10:36.171+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
     insert 
     into
         brand
         (address, created, name, short_code, updated) 
     values
         (?, ?, ?, ?, ?)
-2025-07-04T18:09:18.687+03:00 TRACE 2054 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [null]
-2025-07-04T18:09:18.687+03:00 TRACE 2054 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP_UTC) &lt;- [2025-07-04T15:09:18.680060Z]
-2025-07-04T18:09:18.687+03:00 TRACE 2054 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [Brand to Update]
-2025-07-04T18:09:18.687+03:00 TRACE 2054 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [null]
-2025-07-04T18:09:18.687+03:00 TRACE 2054 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP_UTC) &lt;- [2025-07-04T15:09:18.680089Z]
-2025-07-04T18:09:18.777+03:00  INFO 2054 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-07-04T18:09:18.777+03:00  INFO 2054 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-07-04T18:09:18.778+03:00  INFO 2054 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-07-04T18:09:18.833+03:00 DEBUG 2054 --- [o-auto-1-exec-1] org.hibernate.SQL                        : 
+2025-07-04T19:10:36.172+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.172+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.171899Z]
+2025-07-04T19:10:36.172+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [Brand To Delete]
+2025-07-04T19:10:36.172+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.172+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.171906Z]
+2025-07-04T19:10:36.180+03:00 DEBUG 11757 --- [o-auto-1-exec-1] org.hibernate.SQL                        : 
     select
         b1_0.id,
         b1_0.address,
@@ -414,8 +121,61 @@ java.net.ConnectException: Connection refused
         brand b1_0 
     where
         b1_0.id=?
-2025-07-04T18:09:18.834+03:00 TRACE 2054 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [1]
-2025-07-04T18:09:18.846+03:00 DEBUG 2054 --- [o-auto-1-exec-1] org.hibernate.SQL                        : 
+2025-07-04T19:10:36.180+03:00 TRACE 11757 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.185+03:00 DEBUG 11757 --- [o-auto-1-exec-1] org.hibernate.SQL                        : 
+    delete 
+    from
+        brand 
+    where
+        id=?
+2025-07-04T19:10:36.185+03:00 TRACE 11757 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.187+03:00 DEBUG 11757 --- [o-auto-1-exec-1] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        brand b1_0 
+    where
+        b1_0.id=?
+2025-07-04T19:10:36.187+03:00 TRACE 11757 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.191+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.address,
+        b1_0.created,
+        b1_0.name,
+        b1_0.short_code,
+        b1_0.updated 
+    from
+        brand b1_0 
+    where
+        b1_0.id=?
+2025-07-04T19:10:36.191+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [9]
+2025-07-04T19:10:36.199+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        brand
+        (address, created, name, short_code, updated) 
+    values
+        (?, ?, ?, ?, ?)
+2025-07-04T19:10:36.199+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.199+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.198968Z]
+2025-07-04T19:10:36.199+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [Brand to Update]
+2025-07-04T19:10:36.199+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.199+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.198973Z]
+2025-07-04T19:10:36.215+03:00 DEBUG 11757 --- [o-auto-1-exec-2] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.address,
+        b1_0.created,
+        b1_0.name,
+        b1_0.short_code,
+        b1_0.updated 
+    from
+        brand b1_0 
+    where
+        b1_0.id=?
+2025-07-04T19:10:36.215+03:00 TRACE 11757 --- [o-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [10]
+2025-07-04T19:10:36.219+03:00 DEBUG 11757 --- [o-auto-1-exec-2] org.hibernate.SQL                        : 
     update
         brand 
     set
@@ -426,24 +186,37 @@ java.net.ConnectException: Connection refused
         updated=? 
     where
         id=?
-2025-07-04T18:09:18.846+03:00 TRACE 2054 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [null]
-2025-07-04T18:09:18.846+03:00 TRACE 2054 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP_UTC) &lt;- [2025-07-04T15:09:18.680060Z]
-2025-07-04T18:09:18.846+03:00 TRACE 2054 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [Updated Brand]
-2025-07-04T18:09:18.846+03:00 TRACE 2054 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [null]
-2025-07-04T18:09:18.846+03:00 TRACE 2054 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP_UTC) &lt;- [2025-07-04T15:09:18.844664Z]
-2025-07-04T18:09:18.846+03:00 TRACE 2054 --- [o-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:BIGINT) &lt;- [1]
-2025-07-04T18:09:18.868+03:00  WARN 2054 --- [o-auto-1-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-</pre>
-</span>
-</div>
-<div class="tab">
-<h2>Standard error</h2>
-<span class="code">
-<pre>Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
-WARNING: A Java agent has been loaded dynamically (/Users/A1E6401/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.5/58f9507f5f28d1d3e7adfb4ec2fe37c29d332c9b/byte-buddy-agent-1.17.5.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2025-07-04T19:10:36.219+03:00 TRACE 11757 --- [o-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.219+03:00 TRACE 11757 --- [o-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.198968Z]
+2025-07-04T19:10:36.219+03:00 TRACE 11757 --- [o-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [Updated Brand]
+2025-07-04T19:10:36.219+03:00 TRACE 11757 --- [o-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.219+03:00 TRACE 11757 --- [o-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.219315Z]
+2025-07-04T19:10:36.219+03:00 TRACE 11757 --- [o-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (6:BIGINT) &lt;- [10]
+2025-07-04T19:10:36.224+03:00 DEBUG 11757 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.address,
+        b1_0.created,
+        b1_0.name,
+        b1_0.short_code,
+        b1_0.updated 
+    from
+        brand b1_0 
+    where
+        b1_0.id=?
+2025-07-04T19:10:36.224+03:00 TRACE 11757 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [10]
+2025-07-04T19:10:36.234+03:00 DEBUG 11757 --- [o-auto-1-exec-3] org.hibernate.SQL                        : 
+    insert 
+    into
+        brand
+        (address, created, name, short_code, updated) 
+    values
+        (?, ?, ?, ?, ?)
+2025-07-04T19:10:36.234+03:00 TRACE 11757 --- [o-auto-1-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.234+03:00 TRACE 11757 --- [o-auto-1-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.234129Z]
+2025-07-04T19:10:36.234+03:00 TRACE 11757 --- [o-auto-1-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [New Brand]
+2025-07-04T19:10:36.234+03:00 TRACE 11757 --- [o-auto-1-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) &lt;- [null]
+2025-07-04T19:10:36.234+03:00 TRACE 11757 --- [o-auto-1-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (5:TIMESTAMP_UTC) &lt;- [2025-07-04T16:10:36.234137Z]
 </pre>
 </span>
 </div>
@@ -455,7 +228,7 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.14.2</a> at Jul 4, 2025, 6:09:19 PM</p>
+<a href="https://www.gradle.org">Gradle 8.14.2</a> at Jul 4, 2025, 7:10:36 PM</p>
 </div>
 </div>
 </body>
