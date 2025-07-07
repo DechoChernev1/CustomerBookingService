@@ -75,6 +75,17 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    public List<BookingDTO> findBookingsByCustomerId(Long customerId) {
+        List<BookingDTO> bookingDTOList =
+                bookingRepository
+                        .findByCustomer_Id(customerId)
+                        .stream()
+                        .map(booking -> modelMapper.map(booking, BookingDTO.class)).toList();
+
+        return bookingDTOList;
+    }
+
+    @Override
     public List<BookingDTO> findBookingsByBrandId(Long brandId) {
         List<BookingDTO> bookingDTOList =
                 bookingRepository

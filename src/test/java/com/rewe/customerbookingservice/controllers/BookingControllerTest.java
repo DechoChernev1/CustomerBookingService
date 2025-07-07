@@ -44,18 +44,19 @@ class BookingControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        bookingDTO = new BookingDTO();
-        bookingDTO.setId(1L);
-        bookingDTO.setTitle("Booking Title");
+        customerDTO = new CustomerDTO();
+        customerDTO.setId(1L);
+        customerDTO.setName("Customer Name");
 
         brandDTO = new BrandDTO();
         brandDTO.setId(1L);
         brandDTO.setName("Brand Name");
 
-        customerDTO = new CustomerDTO();
-        customerDTO.setId(1L);
-        customerDTO.setName("Customer Name");
-        customerDTO.setBookings(Collections.singletonList(bookingDTO));
+        bookingDTO = new BookingDTO();
+        bookingDTO.setId(1L);
+        bookingDTO.setTitle("Booking Title");
+        bookingDTO.setCustomer(customerDTO);
+        bookingDTO.setBrand(brandDTO);
     }
 
     @Test
@@ -70,12 +71,12 @@ class BookingControllerTest {
 
     @Test
     void testGetBookingsForCustomer() {
-        when(customerService.findCustomerById(1L)).thenReturn(Optional.of(customerDTO));
+        when(bookingService.findBookingsByCustomerId(1L)).thenReturn(List.of(bookingDTO));
 
         ResponseEntity<List<BookingDTO>> response = bookingController.getBookingsForCustomer(1L);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(customerDTO.getBookings(), response.getBody());
+        assertEquals(List.of(bookingDTO), response.getBody());
     }
 
     @Test

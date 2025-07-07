@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rewe.customerbookingservice.controllers.BrandControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-07-07T14:12:15.395Z" hostname="YKFJ27QFLX" time="0.005">
+  <properties/>
+  <testcase name="testDeleteBrand()" classname="com.rewe.customerbookingservice.controllers.BrandControllerTest" time="0.001"/>
+  <testcase name="testUpdateBrand()" classname="com.rewe.customerbookingservice.controllers.BrandControllerTest" time="0.001"/>
+  <testcase name="testAddBrand()" classname="com.rewe.customerbookingservice.controllers.BrandControllerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

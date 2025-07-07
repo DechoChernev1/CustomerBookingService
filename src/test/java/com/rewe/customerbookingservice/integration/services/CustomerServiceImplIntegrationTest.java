@@ -2,9 +2,12 @@ package com.rewe.customerbookingservice.integration.services;
 
 import com.rewe.customerbookingservice.dtos.CustomerDTO;
 import com.rewe.customerbookingservice.services.CustomerService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.jdbc.JdbcTestUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +21,14 @@ class CustomerServiceImplIntegrationTest {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @AfterEach
+    void tearDown() {
+        JdbcTestUtils.deleteFromTables(jdbcTemplate, "customer", "booking", "brand");
+    }
 
     @Test
     void saveCustomer_shouldSaveAndReturnCustomerDTO() {

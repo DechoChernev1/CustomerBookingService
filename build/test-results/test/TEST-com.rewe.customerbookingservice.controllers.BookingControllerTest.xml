@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rewe.customerbookingservice.controllers.BookingControllerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-07-07T14:12:15.223Z" hostname="YKFJ27QFLX" time="0.171">
+  <properties/>
+  <testcase name="testGetBookingById()" classname="com.rewe.customerbookingservice.controllers.BookingControllerTest" time="0.156"/>
+  <testcase name="testGetBookingsForCustomer()" classname="com.rewe.customerbookingservice.controllers.BookingControllerTest" time="0.002"/>
+  <testcase name="testAddBrandToBooking()" classname="com.rewe.customerbookingservice.controllers.BookingControllerTest" time="0.002"/>
+  <testcase name="testUpdateBooking()" classname="com.rewe.customerbookingservice.controllers.BookingControllerTest" time="0.002"/>
+  <testcase name="testGetBookingsByBrand()" classname="com.rewe.customerbookingservice.controllers.BookingControllerTest" time="0.003"/>
+  <testcase name="testAddBooking()" classname="com.rewe.customerbookingservice.controllers.BookingControllerTest" time="0.002"/>
+  <testcase name="testDeleteBooking()" classname="com.rewe.customerbookingservice.controllers.BookingControllerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

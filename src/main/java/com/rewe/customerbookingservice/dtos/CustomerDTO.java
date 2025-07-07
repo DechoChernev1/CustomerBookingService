@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @EqualsAndHashCode
 @Getter
@@ -32,5 +31,4 @@ public class CustomerDTO {
     private boolean active;
     private LocalDateTime created;
     private LocalDateTime updated;
-    private List<BookingDTO> bookings;
 }

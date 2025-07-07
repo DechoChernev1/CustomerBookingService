@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rewe.customerbookingservice.integration.services.BookingServiceImplIntegrationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-07-07T14:12:17.387Z" hostname="YKFJ27QFLX" time="0.12">
+  <properties/>
+  <testcase name="findAllBookings_shouldReturnListOfBookingDTOs()" classname="com.rewe.customerbookingservice.integration.services.BookingServiceImplIntegrationTest" time="0.035"/>
+  <testcase name="saveBooking_shouldSaveAndReturnBookingDTO()" classname="com.rewe.customerbookingservice.integration.services.BookingServiceImplIntegrationTest" time="0.013"/>
+  <testcase name="findBookingById_shouldReturnBookingDTO_whenBookingExists()" classname="com.rewe.customerbookingservice.integration.services.BookingServiceImplIntegrationTest" time="0.019"/>
+  <testcase name="deleteBooking_shouldRemoveBooking()" classname="com.rewe.customerbookingservice.integration.services.BookingServiceImplIntegrationTest" time="0.031"/>
+  <testcase name="updateBooking_shouldUpdateAndReturnBookingDTO_whenBookingExists()" classname="com.rewe.customerbookingservice.integration.services.BookingServiceImplIntegrationTest" time="0.021"/>
+  <system-out><![CDATA[2025-07-07T17:12:17.381+03:00  INFO 88501 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.rewe.customerbookingservice.integration.services.BookingServiceImplIntegrationTest]: BookingServiceImplIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-07T17:12:17.387+03:00  INFO 88501 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.rewe.customerbookingservice.CustomerBookingServiceApplication for test class com.rewe.customerbookingservice.integration.services.BookingServiceImplIntegrationTest
+2025-07-07T17:12:17.390+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        booking
+        (active, age, brand_id, created, customer_id, description, end_date, start_date, title, updated) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [false]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [0]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:BIGINT) <- [null]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.390386Z]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:BIGINT) <- [null]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:DATE) <- [null]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:DATE) <- [null]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [Booking X]
+2025-07-07T17:12:17.390+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (10:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.390390Z]
+2025-07-07T17:12:17.400+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        booking
+        (active, age, brand_id, created, customer_id, description, end_date, start_date, title, updated) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-07-07T17:12:17.400+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [false]
+2025-07-07T17:12:17.400+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [0]
+2025-07-07T17:12:17.400+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:BIGINT) <- [null]
+2025-07-07T17:12:17.400+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.400593Z]
+2025-07-07T17:12:17.400+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:BIGINT) <- [null]
+2025-07-07T17:12:17.400+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2025-07-07T17:12:17.400+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:DATE) <- [null]
+2025-07-07T17:12:17.400+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:DATE) <- [null]
+2025-07-07T17:12:17.401+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [Booking Y]
+2025-07-07T17:12:17.401+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (10:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.400599Z]
+2025-07-07T17:12:17.406+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.customer_id,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0
+2025-07-07T17:12:17.415+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table customer
+2025-07-07T17:12:17.418+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 2 rows from table booking
+2025-07-07T17:12:17.421+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table brand
+2025-07-07T17:12:17.425+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        booking
+        (active, age, brand_id, created, customer_id, description, end_date, start_date, title, updated) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [false]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [0]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:BIGINT) <- [null]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.425021Z]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:BIGINT) <- [null]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:DATE) <- [null]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:DATE) <- [null]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [Booking A]
+2025-07-07T17:12:17.425+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (10:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.425026Z]
+2025-07-07T17:12:17.431+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table customer
+2025-07-07T17:12:17.433+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 1 rows from table booking
+2025-07-07T17:12:17.435+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table brand
+2025-07-07T17:12:17.438+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        booking
+        (active, age, brand_id, created, customer_id, description, end_date, start_date, title, updated) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [false]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [0]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:BIGINT) <- [null]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.438375Z]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:BIGINT) <- [null]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:DATE) <- [null]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:DATE) <- [null]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [Booking B]
+2025-07-07T17:12:17.438+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (10:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.438380Z]
+2025-07-07T17:12:17.444+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.customer_id,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0 
+    where
+        b1_0.id=?
+2025-07-07T17:12:17.444+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [12]
+2025-07-07T17:12:17.449+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table customer
+2025-07-07T17:12:17.452+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 1 rows from table booking
+2025-07-07T17:12:17.454+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table brand
+2025-07-07T17:12:17.457+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        booking
+        (active, age, brand_id, created, customer_id, description, end_date, start_date, title, updated) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-07-07T17:12:17.457+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [false]
+2025-07-07T17:12:17.457+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [0]
+2025-07-07T17:12:17.457+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:BIGINT) <- [null]
+2025-07-07T17:12:17.458+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.457774Z]
+2025-07-07T17:12:17.458+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:BIGINT) <- [null]
+2025-07-07T17:12:17.458+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2025-07-07T17:12:17.458+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:DATE) <- [null]
+2025-07-07T17:12:17.458+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:DATE) <- [null]
+2025-07-07T17:12:17.458+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [Booking Z]
+2025-07-07T17:12:17.458+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (10:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.457779Z]
+2025-07-07T17:12:17.465+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.customer_id,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0 
+    where
+        b1_0.id=?
+2025-07-07T17:12:17.465+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [13]
+2025-07-07T17:12:17.467+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    delete 
+    from
+        booking 
+    where
+        id=?
+2025-07-07T17:12:17.467+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [13]
+2025-07-07T17:12:17.469+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        booking b1_0 
+    where
+        b1_0.id=?
+2025-07-07T17:12:17.469+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [13]
+2025-07-07T17:12:17.476+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.customer_id,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0 
+    where
+        b1_0.id=?
+2025-07-07T17:12:17.476+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [13]
+2025-07-07T17:12:17.482+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table customer
+2025-07-07T17:12:17.484+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table booking
+2025-07-07T17:12:17.485+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table brand
+2025-07-07T17:12:17.489+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        booking
+        (active, age, brand_id, created, customer_id, description, end_date, start_date, title, updated) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [false]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [0]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:BIGINT) <- [null]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.489173Z]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:BIGINT) <- [null]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:DATE) <- [null]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:DATE) <- [null]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [Initial Booking]
+2025-07-07T17:12:17.489+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (10:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.489180Z]
+2025-07-07T17:12:17.495+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.customer_id,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0 
+    where
+        b1_0.id=?
+2025-07-07T17:12:17.495+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [14]
+2025-07-07T17:12:17.497+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    update
+        booking 
+    set
+        active=?,
+        age=?,
+        brand_id=?,
+        created=?,
+        customer_id=?,
+        description=?,
+        end_date=?,
+        start_date=?,
+        title=?,
+        updated=? 
+    where
+        id=?
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [false]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [0]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:BIGINT) <- [null]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.489173Z]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:BIGINT) <- [null]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:VARCHAR) <- [null]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:DATE) <- [null]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:DATE) <- [null]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (9:VARCHAR) <- [Updated Booking]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (10:TIMESTAMP_UTC) <- [2025-07-07T14:12:17.497223Z]
+2025-07-07T17:12:17.497+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (11:BIGINT) <- [14]
+2025-07-07T17:12:17.500+03:00 DEBUG 88501 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.active,
+        b1_0.age,
+        b1_0.brand_id,
+        b1_0.created,
+        b1_0.customer_id,
+        b1_0.description,
+        b1_0.end_date,
+        b1_0.start_date,
+        b1_0.title,
+        b1_0.updated 
+    from
+        booking b1_0 
+    where
+        b1_0.id=?
+2025-07-07T17:12:17.500+03:00 TRACE 88501 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) <- [14]
+2025-07-07T17:12:17.504+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table customer
+2025-07-07T17:12:17.506+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 1 rows from table booking
+2025-07-07T17:12:17.507+03:00  INFO 88501 --- [    Test worker] o.s.test.jdbc.JdbcTestUtils              : Deleted 0 rows from table brand
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -2,7 +2,6 @@ package com.rewe.customerbookingservice.controllers;
 
 import com.rewe.customerbookingservice.dtos.BookingDTO;
 import com.rewe.customerbookingservice.dtos.BrandDTO;
-import com.rewe.customerbookingservice.dtos.CustomerDTO;
 import com.rewe.customerbookingservice.services.BookingService;
 import com.rewe.customerbookingservice.services.BrandService;
 import com.rewe.customerbookingservice.services.CustomerService;
@@ -39,11 +38,8 @@ public class BookingController {
 
     @GetMapping("/customer/{customerId}")
     public ResponseEntity<List<BookingDTO>> getBookingsForCustomer(@PathVariable @Positive Long customerId) {
-        Optional<CustomerDTO> customerDTO = customerService.findCustomerById(customerId);
-        if (customerDTO.isPresent()) {
-            List<BookingDTO> bookings = customerDTO.get().getBookings();
-            return ResponseEntity.ok(bookings);
-        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        List<BookingDTO> bookings = bookingService.findBookingsByCustomerId(customerId);
+        return ResponseEntity.ok(bookings);
     }
 
     @GetMapping("/brand/{brandId}")

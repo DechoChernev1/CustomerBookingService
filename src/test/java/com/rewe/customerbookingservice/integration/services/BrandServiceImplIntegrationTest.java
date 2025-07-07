@@ -27,7 +27,7 @@ class BrandServiceImplIntegrationTest {
 
     @AfterEach
     void tearDown() {
-        JdbcTestUtils.deleteFromTables(jdbcTemplate, "brand");
+        JdbcTestUtils.deleteFromTables(jdbcTemplate, "customer", "booking", "brand");
     }
 
     @Test
