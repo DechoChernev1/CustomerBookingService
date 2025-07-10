@@ -19,8 +19,4 @@ public class Brand extends BaseEntity {
     private String name;
     private String address;
     private String shortCode;
-    @CreationTimestamp
-    private Instant created;
-    @UpdateTimestamp
-    private Instant updated;
 }

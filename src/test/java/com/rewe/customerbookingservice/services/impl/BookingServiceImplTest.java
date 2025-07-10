@@ -3,6 +3,7 @@ package com.rewe.customerbookingservice.services.impl;
 import com.rewe.customerbookingservice.data.entities.Booking;
 import com.rewe.customerbookingservice.data.repositories.BookingRepository;
 import com.rewe.customerbookingservice.dtos.BookingDTO;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
@@ -47,10 +48,10 @@ class BookingServiceImplTest {
     void findBookingById_shouldReturnBookingDTO_whenBookingExists() {
         when(bookingRepository.findById(1L)).thenReturn(Optional.of(booking));
 
-        Optional<BookingDTO> result = bookingService.findBookingById(1L);
+        BookingDTO result = bookingService.findBookingById(1L);
 
-        assertTrue(result.isPresent());
-        assertEquals(bookingDTO.getId(), result.get().getId());
+        assertNotNull(result);
+        assertEquals(bookingDTO.getId(), result.getId());
     }
 
     @Test
@@ -85,5 +86,21 @@ class BookingServiceImplTest {
 
         assertNotNull(result);
         assertEquals("Booking B", result.getTitle());
+    }
+
+    @Test
+    void updateBooking_shouldReturnException_whenBookingDoesNotExists() {
+        when(bookingRepository.findById(1L)).thenReturn(Optional.empty());
+
+        BookingDTO updatedDetails = new BookingDTO();
+        updatedDetails.setTitle("Booking B");
+
+        // Act and Assert
+        Exception exception = assertThrows(
+                EntityNotFoundException.class,
+                () -> bookingService.updateBooking(1L, updatedDetails)
+        );
+
+        assertEquals("Booking not found for id: 1", exception.getMessage());
     }
 }

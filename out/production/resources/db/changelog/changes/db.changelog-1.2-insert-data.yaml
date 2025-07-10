@@ -1,0 +1,154 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.2
+      author: decho
+      changes:
+        - insert:
+            tableName: brand
+            columns:
+              - column:
+                  name: name
+                  value: "Brand A"
+              - column:
+                  name: address
+                  value: "123 Main St, City"
+              - column:
+                  name: created
+                  value: "2023-10-01T01:00:00Z"
+              - column:
+                  name: updated
+                  value: "2023-10-01T01:00:00Z"
+              - column:
+                  name: short_code
+                  value: "BA"
+
+        - insert:
+            tableName: brand
+            columns:
+              - column:
+                  name: name
+                  value: "Brand B"
+              - column:
+                  name: address
+                  value: "456 Side St, City"
+              - column:
+                  name: created
+                  value: "2023-10-01T02:00:00Z"
+              - column:
+                  name: updated
+                  value: "2023-10-01T02:00:00Z"
+              - column:
+                  name: short_code
+                  value: "BB"
+
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: name
+                  value: "John Doe"
+              - column:
+                  name: email
+                  value: "john.doe@example.com"
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: age
+                  valueNumeric: 30
+              - column:
+                  name: created
+                  value: "2023-10-01T01:00:00Z"
+              - column:
+                  name: updated
+                  value: "2023-10-01T01:00:00Z"
+
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: name
+                  value: "Jane Smith"
+              - column:
+                  name: email
+                  value: "jane.smith@example.com"
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: age
+                  valueNumeric: 25
+              - column:
+                  name: created
+                  value: "2023-10-01T02:00:00Z"
+              - column:
+                  name: updated
+                  value: "2023-10-01T02:00:00Z"
+
+        - insert:
+            tableName: booking
+            columns:
+              - column:
+                  name: title
+                  value: "Booking A"
+              - column:
+                  name: description
+                  value: "A simple booking for Brand A"
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: age
+                  valueNumeric: 2
+              - column:
+                  name: created
+                  value: "2023-10-02T01:00:00Z"
+              - column:
+                  name: updated
+                  value: "2023-10-02T01:00:00Z"
+              - column:
+                  name: start_date
+                  value: "2023-10-05"
+              - column:
+                  name: end_date
+                  value: "2023-10-10"
+              - column:
+                  name: brand_id
+                  valueNumeric: 1
+              - column:
+                  name: customer_id
+                  valueNumeric: 1
+
+        - insert:
+            tableName: booking
+            columns:
+              - column:
+                  name: title
+                  value: "Booking B"
+              - column:
+                  name: description
+                  value: "A new booking for Brand B"
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: age
+                  valueNumeric: 2
+              - column:
+                  name: created
+                  value: "2023-10-03T01:00:00Z"
+              - column:
+                  name: updated
+                  value: "2023-10-03T01:00:00Z"
+              - column:
+                  name: start_date
+                  value: "2023-11-01"
+              - column:
+                  name: end_date
+                  value: "2023-11-05"
+              - column:
+                  name: brand_id
+                  valueNumeric: 2
+              - column:
+                  name: customer_id
+                  valueNumeric: 2

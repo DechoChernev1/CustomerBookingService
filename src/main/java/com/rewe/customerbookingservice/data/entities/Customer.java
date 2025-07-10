@@ -24,10 +24,6 @@ public class Customer extends BaseEntity {
     private String email;
     private boolean active;
     private int age;
-    @CreationTimestamp
-    private Instant created;
-    @UpdateTimestamp
-    private Instant updated;
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.PERSIST)
     private List<Booking> bookings;
 }

@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -37,12 +38,6 @@ class BookingControllerIntegrationTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-
-    @Autowired
-    private BookingService bookingService;
-
-    @Autowired
-    private BrandService brandService;
 
     private Customer testCustomer;
     private Brand testBrand;
@@ -148,82 +143,6 @@ class BookingControllerIntegrationTest {
 
         Optional<Booking> bookingResult = bookingRepository.findById(savedBooking.getId());
         assertThat(bookingResult).isNotPresent();
-    }
-
-    @Test
-    void testGetBookingsForCustomer() throws URISyntaxException {
-        Booking booking1 = new Booking();
-        booking1.setTitle("Test Booking1");
-        booking1.setCustomer(testCustomer);
-        Booking savedBooking1 = bookingRepository.save(booking1);
-        Booking booking2 = new Booking();
-        booking2.setTitle("Test Booking2");
-        booking2.setCustomer(testCustomer);
-        Booking savedBooking2 = bookingRepository.save(booking2);
-
-        URI uri = new URI("http://localhost:" + randomServerPort + "/api/bookings/customer/" + testCustomer.getId());
-
-        ResponseEntity<List<BookingDTO>> responseEntity = restTemplate.exchange(
-                uri,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {
-                }
-        );
-
-        // Extract the list from the response entity
-        List<BookingDTO> objectList = responseEntity.getBody();
-
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isNotNull();
-        assertThat(responseEntity.getBody().size()).isEqualTo(2);
-
-        List<Booking> bookings = bookingRepository.findByCustomer_Id(testCustomer.getId());
-        assertThat(bookings).hasSize(2);
-    }
-
-    @Test
-    void testGetBookingsByBrand() throws URISyntaxException {
-        var testBrand = new Brand();
-        testBrand.setName("Test Brand");
-        testBrand = brandRepository.save(testBrand);
-
-        Booking booking = new Booking();
-        booking.setTitle("Test Booking");
-        booking.setBrand(testBrand);
-        Booking savedBooking = bookingRepository.save(booking);
-
-        // Assuming brand already has a booking associated
-        URI uri = new URI("http://localhost:" + randomServerPort + "/api/bookings/brand/" + testBrand.getId());
-
-        ResponseEntity<List> responseEntity = restTemplate.getForEntity(uri, List.class);
-
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isNotNull();
-        assertThat(responseEntity.getBody().size()).isEqualTo(1);
-
-        List<Booking> bookings = bookingRepository.findByBrand_Id(testBrand.getId());
-        assertThat(bookings).hasSize(1);
-    }
-
-    @Test
-    void testAddBrandToBooking() throws URISyntaxException {
-        Booking booking = new Booking();
-        booking.setTitle("Booking For Brand Test");
-        Booking savedBooking = bookingRepository.save(booking);
-
-        URI uri = new URI("http://localhost:" + randomServerPort + "/api/bookings/addBrand/" + savedBooking.getId() + "/" + testBrand.getId());
-
-        restTemplate.put(uri, null);
-
-        ResponseEntity<BookingDTO> responseEntity = restTemplate.getForEntity(new URI("http://localhost:" + randomServerPort + "/api/bookings/" + savedBooking.getId()), BookingDTO.class);
-
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody().getBrand().getId()).isEqualTo(testBrand.getId());
-
-        List<Booking> bookings = bookingRepository.findByBrand_Id(testBrand.getId());
-        assertThat(bookings).hasSize(1);
-        assertThat(bookings.get(0).getTitle()).isEqualTo("Booking For Brand Test");
     }
 }
 

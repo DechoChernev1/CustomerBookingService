@@ -4,6 +4,7 @@ import com.rewe.customerbookingservice.data.entities.Brand;
 import com.rewe.customerbookingservice.data.repositories.BrandRepository;
 import com.rewe.customerbookingservice.dtos.BrandDTO;
 import com.rewe.customerbookingservice.services.BrandService;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,20 +28,6 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public List<BrandDTO> findAllBrands() {
-        return brandRepository.findAll()
-                .stream()
-                .map(brand -> modelMapper.map(brand, BrandDTO.class))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public Optional<BrandDTO> findBrandById(Long id) {
-        return brandRepository.findById(id)
-                .map(brand -> modelMapper.map(brand, BrandDTO.class));
-    }
-
-    @Override
     public BrandDTO saveBrand(BrandDTO brandDTO) {
         Brand brand = modelMapper.map(brandDTO, Brand.class);
         Brand savedBrand = brandRepository.save(brand);
@@ -48,7 +35,7 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public BrandDTO updateBrand(Long id, BrandDTO brandDetails) {
+    public BrandDTO updateBrand(Long id, BrandDTO brandDetails) throws EntityNotFoundException {
         Optional<Brand> existingBrand = brandRepository.findById(id);
         if (existingBrand.isPresent()) {
             Brand brandToUpdate = existingBrand.get();
@@ -58,7 +45,7 @@ public class BrandServiceImpl implements BrandService {
             Brand updatedBrand = brandRepository.save(brandToUpdate);
             return modelMapper.map(updatedBrand, BrandDTO.class);
         }
-        return null; // Or throw an exception about the record not being found
+        throw new EntityNotFoundException("Brand not found for id: " + id);
     }
 
     @Override

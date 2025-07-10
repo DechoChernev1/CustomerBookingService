@@ -1,6 +1,8 @@
 package com.rewe.customerbookingservice.controllers;
 
+import com.rewe.customerbookingservice.dtos.BookingDTO;
 import com.rewe.customerbookingservice.dtos.BrandDTO;
+import com.rewe.customerbookingservice.services.BookingService;
 import com.rewe.customerbookingservice.services.BrandService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
@@ -9,15 +11,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/brands")
-@Validated
 public class BrandController {
 
     private final BrandService brandService;
+    private final BookingService bookingService;
 
-    public BrandController(BrandService brandService) {
+    public BrandController(BrandService brandService, BookingService bookingService) {
+
         this.brandService = brandService;
+        this.bookingService = bookingService;
+    }
+
+    @GetMapping("/{brandId}/bookings")
+    public ResponseEntity<List<BookingDTO>> getBookingsByBrand(@PathVariable @Positive Long brandId) {
+        List<BookingDTO> bookings = bookingService.findBookingsByBrandId(brandId);
+        return ResponseEntity.ok(bookings);
     }
 
     @PostMapping
@@ -30,14 +42,11 @@ public class BrandController {
     public ResponseEntity<BrandDTO> updateBrand(@PathVariable @Positive Long id,
                                                 @Valid @RequestBody BrandDTO brand) {
         BrandDTO updatedBrand = brandService.updateBrand(id, brand);
-        return updatedBrand != null ?
-                ResponseEntity.ok(updatedBrand) :
-                ResponseEntity.notFound().build();
+        return ResponseEntity.ok(updatedBrand);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBrand(@PathVariable @Positive Long id) {
-        boolean isDeleted = brandService.deleteBrand(id);
-        return isDeleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    public ResponseEntity<Boolean> deleteBrand(@PathVariable @Positive Long id) {
+        return ResponseEntity.ok(brandService.deleteBrand(id));
     }
 }

@@ -1,10 +1,12 @@
 package com.rewe.customerbookingservice.integration.controllers;
 
 import com.rewe.customerbookingservice.CustomerBookingServiceApplication;
+import com.rewe.customerbookingservice.data.entities.Booking;
 import com.rewe.customerbookingservice.data.entities.Customer;
 import com.rewe.customerbookingservice.data.repositories.BookingRepository;
 import com.rewe.customerbookingservice.data.repositories.BrandRepository;
 import com.rewe.customerbookingservice.data.repositories.CustomerRepository;
+import com.rewe.customerbookingservice.dtos.BookingDTO;
 import com.rewe.customerbookingservice.dtos.CustomerDTO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -21,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -108,11 +111,14 @@ class CustomerControllerIntegrationTest {
     void testDeleteCustomer() throws URISyntaxException {
         Customer customer = new Customer();
         customer.setName("Customer To Delete");
+        customer.setActive(true);
+        customer.setAge(22);
+        customer.setEmail("asd@asd.com");
         Customer savedCustomer = customerRepository.save(customer);
 
         URI uri = new URI("http://localhost:" + randomServerPort + "/api/customers/" + savedCustomer.getId());
 
-        ResponseEntity<CustomerDTO> responseEntity = restTemplate.exchange(
+        ResponseEntity<Boolean> responseEntity = restTemplate.exchange(
                 uri,
                 HttpMethod.DELETE,
                 null,
@@ -121,9 +127,44 @@ class CustomerControllerIntegrationTest {
         );
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isNull();
+        assertThat(responseEntity.getBody()).isTrue();
 
         Optional<Customer> updated = customerRepository.findById(savedCustomer.getId());
         assertThat(updated.isPresent()).isFalse();
+    }
+
+    @Test
+    void testGetBookingsForCustomer() throws URISyntaxException {
+        Customer customer = new Customer();
+        customer.setName("Customer To Delete");
+        customer.setActive(true);
+        customer.setAge(22);
+        customer.setEmail("asd@asd.com");
+        Customer savedCustomer = customerRepository.save(customer);
+        Booking booking1 = new Booking();
+        booking1.setTitle("Test Booking1");
+        booking1.setCustomer(savedCustomer);
+        Booking savedBooking1 = bookingRepository.save(booking1);
+        Booking booking2 = new Booking();
+        booking2.setTitle("Test Booking2");
+        booking2.setCustomer(savedCustomer);
+        Booking savedBooking2 = bookingRepository.save(booking2);
+
+        URI uri = new URI("http://localhost:" + randomServerPort + "/api/customers/" + savedCustomer.getId() + "/bookings");
+
+        ResponseEntity<List<BookingDTO>> responseEntity = restTemplate.exchange(
+                uri,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<>() {
+                }
+        );
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isNotNull();
+        assertThat(responseEntity.getBody().size()).isEqualTo(2);
+
+        List<Booking> bookings = bookingRepository.findByCustomerId(savedCustomer.getId());
+        assertThat(bookings).hasSize(2);
     }
 }

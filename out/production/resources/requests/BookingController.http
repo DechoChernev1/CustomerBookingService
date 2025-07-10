@@ -1,0 +1,36 @@
+### Add a new booking
+POST http://localhost:8985/api/bookings
+Content-Type: application/json
+
+{
+  "title": "Test Booking",
+  "description": "Booking description",
+  "customerId": 1,
+  "brandId": 1
+}
+
+### Get bookings for a specific customer
+GET http://localhost:8985/api/bookings/customer/1
+
+### Get bookings by a specific brand
+GET http://localhost:8985/api/bookings/brand/1
+
+### Delete a booking
+DELETE http://localhost:8985/api/bookings/1
+
+### Associate a brand with a booking
+PUT http://localhost:8985/api/bookings/addBrand/1/1
+
+### Get booking by ID
+GET http://localhost:8985/api/bookings/1
+
+### Update a booking
+PUT http://localhost:8985/api/bookings/1
+Content-Type: application/json
+
+{
+  "title": "Updated Booking Title",
+  "description": "Updated booking description",
+  "customerId": 1,
+  "brandId": 1
+}

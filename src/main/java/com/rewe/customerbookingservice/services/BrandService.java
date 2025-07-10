@@ -6,11 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BrandService {
-
-    List<BrandDTO> findAllBrands();
-
-    Optional<BrandDTO> findBrandById(Long id);
-
     BrandDTO saveBrand(BrandDTO brand);
 
     BrandDTO updateBrand(Long id, BrandDTO brandDetails);

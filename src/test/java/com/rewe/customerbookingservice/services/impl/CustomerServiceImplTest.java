@@ -3,6 +3,7 @@ package com.rewe.customerbookingservice.services.impl;
 import com.rewe.customerbookingservice.data.entities.Customer;
 import com.rewe.customerbookingservice.data.repositories.CustomerRepository;
 import com.rewe.customerbookingservice.dtos.CustomerDTO;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -46,33 +47,12 @@ class CustomerServiceImplTest {
     }
 
     @Test
-    void findCustomerById_shouldReturnCustomerDTO_whenCustomerExists() {
-        when(customerRepository.findById(1L)).thenReturn(Optional.of(customer));
-
-        Optional<CustomerDTO> result = customerService.findCustomerById(1L);
-
-        assertTrue(result.isPresent());
-        assertEquals(customerDTO.getId(), result.get().getId());
-    }
-
-    @Test
     void deleteCustomer_shouldReturnTrue_whenCustomerIsDeleted() {
         when(customerRepository.existsById(1L)).thenReturn(false);
 
         boolean result = customerService.deleteCustomer(1L);
 
         assertTrue(result);
-    }
-
-    @Test
-    void findAllCustomers_shouldReturnListOfCustomerDTOs() {
-        when(customerRepository.findAll()).thenReturn(List.of(customer));
-
-        List<CustomerDTO> result = customerService.findAllCustomers();
-
-        assertNotNull(result);
-        assertEquals(1, result.size());
-        assertEquals(customerDTO.getId(), result.get(0).getId());
     }
 
     @Test
@@ -88,5 +68,22 @@ class CustomerServiceImplTest {
 
         assertNotNull(result);
         assertEquals("Jane Doe", result.getName());
+    }
+
+    @Test
+    void updateCustomer_shouldReturnException_whenCustomerDoesNotExists() {
+        when(customerRepository.findById(1L)).thenReturn(Optional.empty());
+
+        CustomerDTO updatedDetails = new CustomerDTO();
+        updatedDetails.setId(1L);
+        updatedDetails.setName("Jane Doe");
+
+        // Act and Assert
+        Exception exception = assertThrows(
+                EntityNotFoundException.class,
+                () -> customerService.updateCustomer(1L, updatedDetails)
+        );
+
+        assertEquals("Customer with id 1 not found", exception.getMessage());
     }
 }

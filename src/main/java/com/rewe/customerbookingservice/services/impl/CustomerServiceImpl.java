@@ -4,6 +4,7 @@ import com.rewe.customerbookingservice.data.entities.Customer;
 import com.rewe.customerbookingservice.data.repositories.CustomerRepository;
 import com.rewe.customerbookingservice.dtos.CustomerDTO;
 import com.rewe.customerbookingservice.services.CustomerService;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,19 +26,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerDTO> findAllCustomers() {
-        return customerRepository.findAll()
-                .stream()
-                .map(customer -> modelMapper.map(customer, CustomerDTO.class))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public Optional<CustomerDTO> findCustomerById(Long id) {
-        return customerRepository.findById(id).map(customer -> modelMapper.map(customer, CustomerDTO.class));
-    }
-
-    @Override
     public CustomerDTO saveCustomer(CustomerDTO customer) {
         Customer customerEntity = modelMapper.map(customer, Customer.class);
         Customer savedCustomer = customerRepository.save(customerEntity);
@@ -45,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO updateCustomer(Long id, CustomerDTO customerDetails) {
+    public CustomerDTO updateCustomer(Long id, CustomerDTO customerDetails) throws EntityNotFoundException {
         Optional<Customer> existingCustomer = customerRepository.findById(id);
         if (existingCustomer.isPresent()) {
             Customer customerToUpdate = existingCustomer.get();
@@ -56,7 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
             Customer updatedCustomer = customerRepository.save(customerToUpdate);
             return modelMapper.map(updatedCustomer, CustomerDTO.class);
         }
-        return null; // Or throw an exception about the record not being found
+        throw new EntityNotFoundException("Customer with id " + id + " not found");
     }
 
     @Override

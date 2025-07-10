@@ -23,10 +23,6 @@ public class Booking extends BaseEntity {
     private String description;
     private boolean active;
     private int age;
-    @CreationTimestamp
-    private Instant created;
-    @UpdateTimestamp
-    private Instant updated;
     private LocalDate startDate;
     private LocalDate endDate;
     @ManyToOne(fetch = FetchType.LAZY)

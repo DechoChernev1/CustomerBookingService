@@ -1,6 +1,7 @@
 package com.rewe.customerbookingservice.integration.controllers;
 
 import com.rewe.customerbookingservice.CustomerBookingServiceApplication;
+import com.rewe.customerbookingservice.data.entities.Booking;
 import com.rewe.customerbookingservice.data.entities.Brand;
 import com.rewe.customerbookingservice.data.repositories.BookingRepository;
 import com.rewe.customerbookingservice.data.repositories.BrandRepository;
@@ -20,6 +21,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -108,7 +110,7 @@ class BrandControllerIntegrationTest {
 
         URI uri = new URI("http://localhost:" + randomServerPort + "/api/brands/" + savedBrand.getId());
 
-        ResponseEntity<BrandDTO> responseEntity = restTemplate.exchange(
+        ResponseEntity<Boolean> responseEntity = restTemplate.exchange(
                 uri,
                 HttpMethod.DELETE,
                 null,
@@ -117,9 +119,33 @@ class BrandControllerIntegrationTest {
         );
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isNull();
+        assertThat(responseEntity.getBody()).isTrue();
 
         Optional<Brand> updatedBrand = brandRepository.findById(savedBrand.getId());
         assertThat(updatedBrand.isPresent()).isFalse();
+    }
+
+    @Test
+    void testGetBookingsByBrand() throws URISyntaxException {
+        var testBrand = new Brand();
+        testBrand.setName("Test Brand");
+        testBrand = brandRepository.save(testBrand);
+
+        Booking booking = new Booking();
+        booking.setTitle("Test Booking");
+        booking.setBrand(testBrand);
+        Booking savedBooking = bookingRepository.save(booking);
+
+        // Assuming brand already has a booking associated
+        URI uri = new URI("http://localhost:" + randomServerPort + "/api/brands/" + testBrand.getId() + "/bookings");
+
+        ResponseEntity<List> responseEntity = restTemplate.getForEntity(uri, List.class);
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isNotNull();
+        assertThat(responseEntity.getBody().size()).isEqualTo(1);
+
+        List<Booking> bookings = bookingRepository.findByBrandId(testBrand.getId());
+        assertThat(bookings).hasSize(1);
     }
 }

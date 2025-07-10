@@ -9,7 +9,7 @@ public interface BookingService {
 
     List<BookingDTO> findAllBookings();
 
-    Optional<BookingDTO> findBookingById(Long id);
+    BookingDTO findBookingById(Long id);
 
     BookingDTO saveBooking(BookingDTO booking);
 

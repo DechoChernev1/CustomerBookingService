@@ -5,6 +5,7 @@ import com.rewe.customerbookingservice.data.entities.Brand;
 import com.rewe.customerbookingservice.data.repositories.BookingRepository;
 import com.rewe.customerbookingservice.dtos.BookingDTO;
 import com.rewe.customerbookingservice.services.BookingService;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,13 +33,14 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.findAll()
                 .stream()
                 .map(booking -> modelMapper.map(booking, BookingDTO.class))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
-    public Optional<BookingDTO> findBookingById(Long id) {
+    public BookingDTO findBookingById(Long id) throws EntityNotFoundException {
         return bookingRepository.findById(id)
-                .map(booking -> modelMapper.map(booking, BookingDTO.class));
+                .map(booking -> modelMapper.map(booking, BookingDTO.class))
+                .orElseThrow(EntityNotFoundException::new);
     }
 
     @Override
@@ -49,7 +51,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public BookingDTO updateBooking(Long id, BookingDTO bookingDetails) {
+    public BookingDTO updateBooking(Long id, BookingDTO bookingDetails) throws EntityNotFoundException {
         Optional<Booking> existingBooking = bookingRepository.findById(id);
         if (existingBooking.isPresent()) {
             Booking bookingToUpdate = existingBooking.get();
@@ -65,7 +67,7 @@ public class BookingServiceImpl implements BookingService {
             Booking updatedBooking = bookingRepository.save(bookingToUpdate);
             return modelMapper.map(updatedBooking, BookingDTO.class);
         }
-        return null; // Or throw an exception about the record not being found
+        throw new EntityNotFoundException("Booking not found for id: " + id);
     }
 
     @Override
@@ -78,7 +80,7 @@ public class BookingServiceImpl implements BookingService {
     public List<BookingDTO> findBookingsByCustomerId(Long customerId) {
         List<BookingDTO> bookingDTOList =
                 bookingRepository
-                        .findByCustomer_Id(customerId)
+                        .findByCustomerId(customerId)
                         .stream()
                         .map(booking -> modelMapper.map(booking, BookingDTO.class)).toList();
 
@@ -89,7 +91,7 @@ public class BookingServiceImpl implements BookingService {
     public List<BookingDTO> findBookingsByBrandId(Long brandId) {
         List<BookingDTO> bookingDTOList =
                 bookingRepository
-                        .findByBrand_Id(brandId)
+                        .findByBrandId(brandId)
                         .stream()
                         .map(booking -> modelMapper.map(booking, BookingDTO.class)).toList();
 
